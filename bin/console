@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "umbrtonic"
+require "logger"
+require "influxdb"
+require "irb"
+
+IRB.start(__FILE__)

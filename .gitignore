@@ -1,0 +1,13 @@
+/log/*
+!/log/.keep
+/.bundle/
+/.yardoc
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+.ruby-version
+Gemfile.lock
+*.gem
