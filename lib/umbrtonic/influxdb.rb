@@ -7,12 +7,20 @@ class Umbrtonic::InfluxDB
     @tags        = tags
   end
 
+  def value(name, value)
+    @values[name] = value
+  end
+
   def values(**values)
-    @values = values
+    @values = @values.merge(**values)
+  end
+
+  def tag(name, value)
+    @tags[name] = value
   end
 
   def tags(**tags)
-    @tags = tags
+    @tags = @tags.merge(**tags)
   end
 
   def data
@@ -21,19 +29,13 @@ class Umbrtonic::InfluxDB
       series: series }
   end
 
-  def to_str
+  def build
     ::InfluxDB::PointValue.new(data).dump
   end
 
   private
 
   def series
-    prefix = Umbrtonic.config.settings.prefix
-
-    if prefix
-      "#{prefix}_#{@measurement}"
-    else
-      @measurement.to_s
-    end
+    [Umbrtonic.config.settings.prefix, @measurement].compact.join("_")
   end
 end

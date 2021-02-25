@@ -50,6 +50,7 @@ Alternatively, it is possible to configure with file:
 
 ```yaml
 production:
+  prefix: custom
   influxdb:
     host: 127.0.0.1
     port: 8094
