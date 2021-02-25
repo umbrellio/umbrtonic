@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "bundler/setup"
-require "timecop"
 require "umbrtonic"
 
 RSpec.configure do |config|

@@ -1,5 +1,7 @@
 # Umbrtonic
 
+[![build](https://github.com/umbrellio/umbrtonic/workflows/build/badge.svg)](https://github.com/umbrellio/umbrtonic/actions)
+
 Gem for transferring Active Support Instrumentation events 
 to the InfluxDB database via UDP without boilerplate code.
 
