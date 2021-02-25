@@ -8,8 +8,6 @@ RSpec.describe Umbrtonic do
   let(:port)   { 4444 }
 
   before do
-    Timecop.freeze
-
     allow(Umbrtonic).to receive(:socket) { socket }
 
     described_class.configure do |conf|
@@ -35,6 +33,16 @@ RSpec.describe Umbrtonic do
     end
 
     ActiveSupport::Notifications.instrument(uuid, view_runtime: 150, db_runtime: 10, label: :prod)
+  end
+
+  specify ".unbind" do
+    expect(socket).not_to receive(:send)
+
+    described_class.bind(uuid) do |inf, event|
+      inf.values duration: event.duration
+    end
+
+    described_class.unbind(uuid)
   end
 
   specify "use payload from event directly" do

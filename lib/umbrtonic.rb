@@ -32,9 +32,13 @@ module Umbrtonic
     end
   end
 
+  def unbind(name)
+    ActiveSupport::Notifications.unsubscribe(name)
+  end
+
   def send_via_udp(influx)
     config = self.config.settings.influxdb
-    socket.send(influx.to_str, 0, config.host, config.port)
+    socket.send(influx.build, 0, config.host, config.port)
   end
 
   def socket
