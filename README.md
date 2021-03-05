@@ -1,5 +1,6 @@
 # Umbrtonic
 
+[![Gem Version](https://badge.fury.io/rb/umbrtonic.svg)](https://badge.fury.io/rb/umbrtonic)
 [![build](https://github.com/umbrellio/umbrtonic/workflows/build/badge.svg)](https://github.com/umbrellio/umbrtonic/actions)
 
 Gem for transferring Active Support Instrumentation events 
